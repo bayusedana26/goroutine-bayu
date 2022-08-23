@@ -8,6 +8,10 @@ import (
 var channel = make(chan string)
 var storage = make(chan string)
 
+var items = [7]string{"Rock", "Treasure", "Coral", "Treasure", "Rock", "Treasure", "Coral"}
+
+// Running 3 goroutines, use channel to interact
+
 func getItem(items [7]string) {
 	for _, item := range items {
 		if item == "Treasure" {
@@ -31,7 +35,6 @@ func savedItem() {
 }
 
 func main() {
-	items := [7]string{"Rock", "Treasure", "Coral", "Treasure", "Rock", "Treasure", "Coral"}
 
 	go getItem(items)
 	go cleanItem()
